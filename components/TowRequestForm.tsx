@@ -20,23 +20,27 @@ export default function TowRequestForm() {
 
  const handleSubmit = async (e: any) => {
   e.preventDefault();
+  const form = new FormData();
+  for (let key in formData) {
+    form.append(key, formData[key]);
+  }
+
   try {
-    const response = await fetch("https://towble.webhooks.dashapi.io/submit", {
+    const response = await fetch("YOUR_DEPLOYED_SCRIPT_URL_HERE", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: form,
     });
 
     if (response.ok) {
       alert("Request submitted successfully!");
     } else {
-      alert("Failed to submit. Please try again.");
+      alert("Submission failed.");
     }
   } catch (error) {
-    console.error("Submission error:", error);
-    alert("An error occurred. Please try again.");
+    alert("An error occurred.");
   }
 };
+
 
   
   return (
