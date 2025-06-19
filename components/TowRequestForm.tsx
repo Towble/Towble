@@ -48,7 +48,8 @@ export default function TowRequestForm() {
         <input name="model" placeholder="Model" onChange={handleChange} className="border p-2 rounded" />
       </div>
 
-      <input name="color" placeholder="Color of Car" onChange={handleChange} className="w-full border p-2 rounded" />
+     <input name="color" placeholder="Color" onChange={handleChange} className="w-full border p-2 rounded" />
+
       <input name="license" placeholder="License Plate Number" onChange={handleChange} className="w-full border p-2 rounded" />
 
       <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
