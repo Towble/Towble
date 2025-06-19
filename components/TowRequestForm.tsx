@@ -21,7 +21,7 @@ export default function TowRequestForm() {
  const handleSubmit = async (e: any) => {
   e.preventDefault();
   try {
-    const response = await fetch("https://towble-sheet-proxy.vercel.app/api/submit", {
+    const response = await fetch("https://towble.webhooks.dashapi.io/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -37,6 +37,7 @@ export default function TowRequestForm() {
     alert("An error occurred. Please try again.");
   }
 };
+
   
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">
