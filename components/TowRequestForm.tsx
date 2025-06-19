@@ -8,7 +8,9 @@ export default function TowRequestForm() {
     phone: '',
     year: '',
     make: '',
-    model: ''
+    model: '',
+    color: '',
+    license: ''
   });
 
   const handleChange = (e: any) => {
@@ -23,9 +25,11 @@ export default function TowRequestForm() {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">
-      <h2 className="text-xl font-bold text-gray-700">Request a Tow</h2>
+      <h2 className="text-xl font-bold text-gray-700">Request Roadside Service</h2>
+
       <input name="pickup" placeholder="Pickup Location" onChange={handleChange} required className="w-full border p-2 rounded" />
       <input name="dropoff" placeholder="Drop-off Location (optional)" onChange={handleChange} className="w-full border p-2 rounded" />
+
       <select name="serviceType" onChange={handleChange} required className="w-full border p-2 rounded">
         <option value="">Select Service Type</option>
         <option value="Tow">Tow</option>
@@ -35,12 +39,18 @@ export default function TowRequestForm() {
         <option value="Flat Tire">Flat Tire</option>
         <option value="Other">Other</option>
       </select>
+
       <input name="phone" placeholder="Phone Number" onChange={handleChange} required className="w-full border p-2 rounded" />
+
       <div className="grid grid-cols-3 gap-2">
         <input name="year" placeholder="Year" onChange={handleChange} className="border p-2 rounded" />
         <input name="make" placeholder="Make" onChange={handleChange} className="border p-2 rounded" />
         <input name="model" placeholder="Model" onChange={handleChange} className="border p-2 rounded" />
       </div>
+
+      <input name="color" placeholder="Color of Car" onChange={handleChange} className="w-full border p-2 rounded" />
+      <input name="license" placeholder="License Plate Number" onChange={handleChange} className="w-full border p-2 rounded" />
+
       <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
         Submit Request
       </button>
