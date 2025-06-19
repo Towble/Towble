@@ -37,10 +37,7 @@ export default function TowRequestForm() {
     alert("An error occurred. Please try again.");
   }
 };
-
-
-
-
+  
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">
       <h2 className="text-xl font-bold text-gray-700">Request Roadside Service</h2>
