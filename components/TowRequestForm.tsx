@@ -18,10 +18,25 @@ export default function TowRequestForm() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    console.log('Submitted Data:', formData);
-  };
+  const handleSubmit = async (e: any) => {
+  e.preventDefault();
+  try {
+    const response = await fetch("https://towble-form-handler.vercel.app/api/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      alert("Request submitted successfully!");
+    } else {
+      alert("Failed to submit. Please try again.");
+    }
+  } catch (error) {
+    console.error("Submission error:", error);
+    alert("An error occurred. Please try again.");
+  }
+};
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">
