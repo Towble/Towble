@@ -21,12 +21,14 @@ export default function TowRequestForm() {
  const handleSubmit = async (e: any) => {
   e.preventDefault();
   const form = new FormData();
+
+  // Convert your formData object to FormData
   for (let key in formData) {
     form.append(key, formData[key]);
   }
 
   try {
-    const response = await fetch("YOUR_DEPLOYED_SCRIPT_URL_HERE", {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbwfr_zZRm8qlIa1vG-1X6FRiNYdiQEa6N197qLNFBKWCKhuhMhHxwHJRgtWmQy5G-fzVA/exec", {
       method: "POST",
       body: form,
     });
@@ -37,9 +39,11 @@ export default function TowRequestForm() {
       alert("Submission failed.");
     }
   } catch (error) {
-    alert("An error occurred.");
+    alert("An error occurred while submitting.");
+    console.error(error);
   }
 };
+
 
 
   
