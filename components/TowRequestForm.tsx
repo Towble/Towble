@@ -21,7 +21,7 @@ export default function TowRequestForm() {
  const handleSubmit = async (e: any) => {
   e.preventDefault();
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbwrUCv5DtcllCC2Dp9ur1rTLjozSO4ZogB4XQZYecIc-KcAR1a5iISYPaIv0IntjZ4i/exec", {
+    const response = await fetch("https://towble-sheet-proxy.vercel.app/api/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -37,6 +37,7 @@ export default function TowRequestForm() {
     alert("An error occurred. Please try again.");
   }
 };
+
 
 
 
