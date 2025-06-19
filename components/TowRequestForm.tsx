@@ -18,10 +18,10 @@ export default function TowRequestForm() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: any) => {
+ const handleSubmit = async (e: any) => {
   e.preventDefault();
   try {
-    const response = await fetch("https://towble-form-handler.vercel.app/api/submit", {
+    const response = await fetch("https://towble-api.vercel.app/api/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
