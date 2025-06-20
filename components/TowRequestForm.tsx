@@ -22,13 +22,12 @@ export default function TowRequestForm() {
   e.preventDefault();
   const form = new FormData();
 
-  // Convert your formData object to FormData
   for (let key in formData) {
     form.append(key, formData[key]);
   }
 
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbwfr_zZRm8qlIa1vG-1X6FRiNYdiQEa6N197qLNFBKWCKhuhMhHxwHJRgtWmQy5G-fzVA/exec", {
+    const response = await fetch("https://towble.webhooks.dashapi.io/submit", {
       method: "POST",
       body: form,
     });
@@ -39,10 +38,11 @@ export default function TowRequestForm() {
       alert("Submission failed.");
     }
   } catch (error) {
-    alert("An error occurred while submitting.");
+    alert("An error occurred.");
     console.error(error);
   }
 };
+
 
 
 
